@@ -1,12 +1,12 @@
 <?php
-    // periksa apakah file mahasiswa.json sudah ada
-    if(file_exists('mahasiswa.json')){
-        // Jika YA, maka baca file json
-        $mahasiswa = file_get_contents('mahasiswa.json');
-    }else{
-        // Jika TIDAK, maka eksekusi file export-json.php
+    // periksa apakah file mahasiswa.json tidak ada
+    if(!file_exists('mahasiswa.json')){
+        // Jika YA, maka eksekusi file export-json.php
         include_once('export-json.php');
     }
+       
+    // baca isi file json
+    $mahasiswa = file_get_contents('mahasiswa.json');
 
     // decode variable json
     $mhs = json_decode($mahasiswa, true);
