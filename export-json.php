@@ -1,20 +1,12 @@
 <?php
 
-    $mahasiswa = array(
-        array(
-            'nim' => 123,
-            'nama' => 'Udin'
-        ),
-        array(
-            'nim' => 124,
-            'nama' => 'Joko'
-        )
-    );
+    // deklarasi array mahasiswa
+    $mahasiswa = array();
 
-    // variable yang berisi format JSON
+    // variable dengan format JSON yang berisi array mahasiswa
     $json = json_encode($mahasiswa, JSON_PRETTY_PRINT);
 
-    // export file JSON mahasiswa
+    // export variable json menjadi file mahasiswa.json
     file_put_contents('mahasiswa.json', $json);
 
 
