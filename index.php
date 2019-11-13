@@ -1,5 +1,4 @@
 <?php
-
     // periksa apakah file mahasiswa.json sudah ada
     if(file_exists('mahasiswa.json')){
         // Jika YA, maka baca file json
@@ -51,10 +50,13 @@
 
     <?php
         if (isset($_POST['submitMhs'])) {
+            // menghitung banyaknya elemen pada $mhs
+            $e = sizeof($mhs);
 
-            $el = sizeof($mhs);
-            $mhs[$el]['nim'] = intval($_POST['txtNim']);
-            $mhs[$el]['nama'] = $_POST['txtNama'];
+            // mengisi nilai isian text ke dalam array
+            /* method intval() digunakan untuk casting tipe data dari string ke int */
+            $mhs[$e]['nim'] = intval($_POST['txtNim']);
+            $mhs[$e]['nama'] = $_POST['txtNama'];
             
             // encode ke JSON
             $json = json_encode($mhs, JSON_PRETTY_PRINT);
